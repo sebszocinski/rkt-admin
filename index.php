@@ -197,24 +197,23 @@ function rkt_options_page() {
         </form>
     </div>
 <?php
-}?>
+}
 
-<?php function plugin_section_text() {
+function plugin_section_text() {
     echo '<p>Main description of this section here.</p>';
-}?>
+}
 
-<?php function plugin_setting_string() {
+function plugin_setting_string() {
     $options = get_option('plugin_options');
     echo "<input id='plugin_text_string' name='plugin_options[text_string]' size='40' type='text' value='{$options['text_string']}' />";
-}?>
+}
 
-<?php // validate our options
-    function plugin_options_validate($input) {
-        $options = get_option('plugin_options');
-        $options['text_string'] = trim($input['text_string']);
-        if(!preg_match('/^[a-z0-9]{32}$/i', $options['text_string'])) {
-            $options['text_string'] = '';
-        }
-        return $options;
+// validate our options
+function plugin_options_validate($input) {
+    $options = get_option('plugin_options');
+    $options['text_string'] = trim($input['text_string']);
+    if(!preg_match('/^[a-z0-9]{32}$/i', $options['text_string'])) {
+        $options['text_string'] = '';
     }
-?>
+    return $options;
+}?>
