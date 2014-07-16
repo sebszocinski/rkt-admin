@@ -210,9 +210,11 @@ function rkt_options_page() {
 
 <?php // validate our options
     function plugin_options_validate($input) {
-        $newinput['text_string'] = trim($input['text_string']);
-        if(!preg_match('/^[a-z0-9]{32}$/i', $newinput['text_string'])) {
-        $newinput['text_string'] = '';
+        $options = get_option('plugin_options');
+        $options['text_string'] = trim($input['text_string']);
+        if(!preg_match('/^[a-z0-9]{32}$/i', $options['text_string'])) {
+            $options['text_string'] = '';
+        }
+        return $options;
     }
-        return $newinput;
-}
+?>
