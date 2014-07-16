@@ -63,10 +63,11 @@ function manager_remove_menu_pages() {
     }
 }
 
-add_action( 'admin_menu', 'register_menu_page' );
 
 
-// START Custom  Menu Link (Eg is for a Webletter)
+// **** START Custom  Menu Link (Eg is for a Webletter)
+
+//add_action( 'admin_menu', 'register_menu_page' );
 
 // function register_menu_page(){
 //     add_menu_page( __( 'Webletter', 'text_domain' ), __( 'Webletter', 'text_domain' ), 'manage_options', 'webletter', 'redirect_url', 6 );
@@ -85,7 +86,7 @@ add_action( 'admin_menu', 'register_menu_page' );
 
 // add_action( 'admin_menu', 'redirect_url' );
 
-// END Custom External Menu Link
+// **** END Custom External Menu Link
 
 
 function add_grav_forms(){
