@@ -12,11 +12,8 @@ Author URI: http://www.rockethouse.com.au
 function my_admin_theme_style() {
     wp_enqueue_style('default-admin', plugins_url('css/wp-admin.css', __FILE__));
     wp_enqueue_style('default-colours', plugins_url('css/colors.css', __FILE__));
-    //wp_enqueue_style('selectize', '//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.9.0/css/selectize.css', __FILE__);
     wp_enqueue_script('modernizr', plugins_url('js/modernizr.custom.63321.js', __FILE__));
     wp_enqueue_script('altcheckbox', plugins_url('js/jquery.alt-checkbox.min.js', __FILE__));
-    // wp_enqueue_script('chosen', '//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js', __FILE__);
-    //wp_enqueue_script('selectize', '//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.9.0/js/standalone/selectize.min.js', __FILE__);
     wp_enqueue_script('adminjs', plugins_url('js/admin.js', __FILE__));
 
 }
@@ -68,22 +65,27 @@ function manager_remove_menu_pages() {
 
 add_action( 'admin_menu', 'register_menu_page' );
 
-function register_menu_page(){
-    add_menu_page( __( 'Webletter', 'text_domain' ), __( 'Webletter', 'text_domain' ), 'manage_options', 'webletter', 'redirect_url', 6 );
-}
 
-function redirect_url() {
-    $redirect_url = get_bloginfo('url').'/wp-admin/admin.php?page=webletter';
-    $pageURL = 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-    $external_redirect_url = 'http://enews.rockethouse.com.au';
+// START Custom  Menu Link (Eg is for a Webletter)
 
-    if ($pageURL == $redirect_url) {
-        // header ('location:' + $external_redirect_url);
-        wp_redirect( $external_redirect_url, 302 );
-    }
-}
+// function register_menu_page(){
+//     add_menu_page( __( 'Webletter', 'text_domain' ), __( 'Webletter', 'text_domain' ), 'manage_options', 'webletter', 'redirect_url', 6 );
+// }
 
-add_action( 'admin_menu', 'redirect_url' );
+// function redirect_url() {
+//     $redirect_url = get_bloginfo('url').'/wp-admin/admin.php?page=webletter';
+//     $pageURL = 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+//     $external_redirect_url = 'http://enews.rockethouse.com.au';
+
+//     if ($pageURL == $redirect_url) {
+//         // header ('location:' + $external_redirect_url);
+//         wp_redirect( $external_redirect_url, 302 );
+//     }
+// }
+
+// add_action( 'admin_menu', 'redirect_url' );
+
+// END Custom External Menu Link
 
 
 function add_grav_forms(){
