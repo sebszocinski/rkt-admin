@@ -170,11 +170,24 @@ function rha_theme_menu() {
 
 // add the admin options page
 add_action('admin_menu', 'plugin_admin_add_page');
-function plugin_admin_add_page() {
-add_options_page('Custom Plugin Page', 'Custom Plugin Menu', 'manage_options', 'plugin', 'plugin_options_page');
+    function plugin_admin_add_page() {
+    add_options_page('RKT Admin', 'RKT Admin', 'manage_options', 'plugin', 'rkt_options_page');
 }
 
+// display the admin options page
+function rkt_options_page() {
+?>
+    <div>
+    <h2>RKT Settings</h2>
+    Configure your RKT Admin here.
+    <form action="options.php" method="post">
+    <?php settings_fields('plugin_options'); ?>
+    <?php do_settings_sections('plugin'); ?>
 
+    <input name="Submit" type="submit" value="<?php esc_attr_e('Save Changes'); ?>" />
+    </form></div>
+<?php
+}
 
 
 
