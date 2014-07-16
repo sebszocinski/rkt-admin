@@ -177,15 +177,15 @@ add_action('admin_menu', 'plugin_admin_add_page');
 // display the admin options page
 function rkt_options_page() {
 ?>
-    <div>
-    <h2>RKT Settings</h2>
-    Configure your RKT Admin here.
-    <form action="options.php" method="post">
-    <?php settings_fields('plugin_options'); ?>
-    <?php do_settings_sections('plugin'); ?>
-
-    <input name="Submit" type="submit" value="<?php esc_attr_e('Save Changes'); ?>" />
-    </form></div>
+    <div class="wrap">
+        <h2>RKT Settings</h2>
+        <p>Configure your RKT Admin here.</p>
+        <form action="options.php" method="post">
+            <?php settings_fields('plugin_options'); ?>
+            <?php do_settings_sections('plugin'); ?>
+            <p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="<?php esc_attr_e('Save Changes'); ?>"></p>
+        </form>
+    </div>
 <?php
 }
 
