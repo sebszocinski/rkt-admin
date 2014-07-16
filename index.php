@@ -215,4 +215,4 @@ function rkt_options_page() {
         $newinput['text_string'] = '';
     }
         return $newinput;
-}?>
+}
