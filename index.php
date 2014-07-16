@@ -170,8 +170,18 @@ function rha_theme_menu() {
 
 // add the admin options page
 add_action('admin_menu', 'plugin_admin_add_page');
-    function plugin_admin_add_page() {
-    add_options_page('RKT Admin', 'RKT Admin', 'manage_options', 'plugin', 'rkt_options_page');
+
+function plugin_admin_add_page() {
+    add_options_page('RKT Admin', 'RKT Admin', 'manage_options', 'rkt-admin', 'rkt_options_page');
+}
+
+
+add_action('admin_init', 'plugin_admin_init');
+
+function plugin_admin_init(){
+    register_setting( 'plugin_options', 'plugin_options', 'plugin_options_validate' );
+    add_settings_section('plugin_main', 'Main Settings', 'plugin_section_text', 'rkt-admin');
+    add_settings_field('plugin_text_string', 'Plugin Text Input', 'plugin_setting_string', 'rkt-admin', 'plugin_main');
 }
 
 // display the admin options page
@@ -182,12 +192,31 @@ function rkt_options_page() {
         <p>Configure your RKT Admin here.</p>
         <form action="options.php" method="post">
             <?php settings_fields('plugin_options'); ?>
-            <?php do_settings_sections('plugin'); ?>
+            <?php do_settings_sections('rkt-admin'); ?>
             <p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="<?php esc_attr_e('Save Changes'); ?>"></p>
         </form>
     </div>
 <?php
-}
+}?>
+
+<?php function plugin_section_text() {
+    echo '<p>Main description of this section here.</p>';
+}?>
+
+<?php function plugin_setting_string() {
+    $options = get_option('plugin_options');
+    echo "<input id='plugin_text_string' name='plugin_options[text_string]' size='40' type='text' value='{$options['text_string']}' />";
+}?>
+
+<?php // validate our options
+    function plugin_options_validate($input) {
+        $newinput['text_string'] = trim($input['text_string']);
+        if(!preg_match('/^[a-z0-9]{32}$/i', $newinput['text_string'])) {
+        $newinput['text_string'] = '';
+    }
+        return $newinput;
+    }
+
 
 
 
