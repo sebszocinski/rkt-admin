@@ -63,6 +63,16 @@ function manager_remove_menu_pages() {
     }
 }
 
+// REMOVE ADMIN COLUMNS FOR COMMENTS & AUTHORS
+add_action( 'admin_init', 'remove_admin_columns' );
+function remove_admin_columns() {
+    remove_post_type_support( 'post', 'comments' );
+    remove_post_type_support( 'page', 'comments' );
+    remove_post_type_support( 'attachment', 'comments' );
+    remove_post_type_support( 'post', 'author' );
+    remove_post_type_support( 'page', 'author' );
+}
+
 
 
 // **** START Custom  Menu Link (Eg is for a Webletter)
