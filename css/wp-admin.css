@@ -14255,4 +14255,64 @@ ul.product_data_tabs li.advanced_options {
 	display: none !important;
 }
 
-v
+#submitdiv {
+	position: fixed;
+	bottom: 0;
+	z-index: 999;
+	right: 0;
+	left: 0;
+	margin-left: 200px;
+	margin-bottom: 0;
+	border: none;
+	background: #26292C;
+	color: #fff;
+	font-weight: 100;
+}
+
+#submitdiv #major-publishing-actions a {
+	color: #fff;
+}
+
+#submitdiv a.submitdelete {
+	margin-right: 8px
+}
+
+body.folded #submitdiv {
+	margin-left: 41px
+}
+
+#submitdiv div.handlediv,
+#submitdiv h3.hndle,
+#submitdiv #minor-publishing-actions {
+	display: none;
+}
+
+#submitdiv #misc-publishing-actions {
+	padding: 10px 10px 8px;
+	float: left;
+}
+
+#submitdiv #misc-publishing-actions > div {
+	float: left;
+}
+
+#submitdiv #misc-publishing-actions label {
+	font-weight: 100
+}
+
+#submitdiv #minor-publishing {
+	float: left;
+}
+
+#submitdiv #major-publishing-actions {
+	background: #26292C;
+	float: right;
+	clear: none;
+	border-top: 0
+}
+
+#submitdiv input.button.button-primary {
+	background:#E14D43 !important;
+	border: none !important;
+	box-shadow: none !important;
+}
