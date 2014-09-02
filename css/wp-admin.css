@@ -13751,6 +13751,12 @@ body #adminmenu #toplevel_page_w3tc_dashboard .wp-menu-image:before {
 	font-size: 1.3em!important;
 }
 
+#toplevel_page_ajax-load-more .wp-menu-image:before {
+	font-family: 'Simple-Line-Icons' !important;
+	content: "\e099";
+	font-size: 1.3em!important;
+}
+
 body #adminmenu #toplevel_page_webletter .wp-menu-image:before {
 	font-family: 'Simple-Line-Icons' !important;
 	content: "\e086";
