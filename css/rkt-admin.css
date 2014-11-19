@@ -350,6 +350,10 @@ ul#adminmenu > li.current > a.current:after {
 	text-align: center;
 }
 
+div.wp-menu-image img {
+	display: none
+}
+
 body.rkt #adminmenu div.wp-menu-image:before {
 	color: #f1f2f3;
 }
@@ -419,6 +423,11 @@ body.rkt #adminmenu div.wp-menu-image:before {
 .icon16.icon-generic:before,
 #adminmenu .menu-icon-generic div.wp-menu-image:before {
 	content: '\e06e';
+}
+
+.icon16.icon-generic:before,
+#adminmenu .toplevel_page_gf_edit_forms div.wp-menu-image:before {
+	content: '\e086';
 }
 
 
