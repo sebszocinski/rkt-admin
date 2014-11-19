@@ -2,38 +2,7 @@ jQuery(document).ready(function(){
 
 	var $ = jQuery;
 
-	$('<a href="/" class="view-site"></a>').prependTo('#wpadminbar')
-
-
-	// if ($('select').parents('#woocommerce-product-data, #post-body').length) {
-
-	// }
-
-	// else {
-
-	// 	$("select").chosen({
-	// 		disable_search: true,
-	// 		inherit_select_classes: true
-	// 	});
-
-	// 	$("select").on(function(e){
-	// 		e.this.chosen({
-	// 			disable_search: true,
-	// 			inherit_select_classes: true
-	// 		});
-	// 	});
-
-	// 	$('#add_field').click(function(){
-	// 		$("select").chosen({
-	// 			disable_search: true,
-	// 			inherit_select_classes: true
-	// 		});
-	// 	});
-
-	// }
-
-
-
+	$('<a href="/" class="view-site"></a>').prependTo('#wpadminbar');
 
 
 	jQuery(document).ready(function($){
@@ -78,48 +47,4 @@ jQuery(document).ready(function(){
 	    );
 	});
 
-
-	// jQuery("input[type=checkbox]").altCheckbox();
-
-	// jQuery("body.edit-php div#wpbody").addClass("simple-view");
-
-	// jQuery(".wp-list-table th.check-column").css('display','table-cell');
-
-	// jQuery("body.edit-php div.wrap > h2").after('<a href="#" class="advanced-view">Advanced View</a>');
-
-	// jQuery("a.advanced-view").click(function(){
-	// 	var txt = jQuery("div#wpbody").is('.simple-view') ? 'Simple View' : 'Advanced View';
- //     	jQuery(this).text(txt);
- //     	jQuery("div#wpbody").toggleClass('simple-view');
-	// });
-
 });
-
-// jQuery(document).ajaxSuccess(function() {
-// 	if ($('select').parents('#woocommerce-product-data, #post-body').length) {
-
-// 	}
-
-// 	else {
-
-// 		$("select").chosen({
-// 			disable_search: true,
-// 			inherit_select_classes: true
-// 		});
-
-// 		$("select").on(function(e){
-// 			e.this.chosen({
-// 				disable_search: true,
-// 				inherit_select_classes: true
-// 			});
-// 		});
-
-// 		$('#add_field').click(function(){
-// 			$("select").chosen({
-// 				disable_search: true,
-// 				inherit_select_classes: true
-// 			});
-// 		});
-
-// 	}
-// });

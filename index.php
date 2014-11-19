@@ -5,30 +5,27 @@ Plugin Name: Rockethouse Wordpress Admin UI
 Plugin URI: http://www.rockethouse.com.au
 Description: Rockethouse Wordpress Admin UI Theme - Upload and Activate.
 Author: Rockethouse
-Version: 2.0
+Version: 3.0
 Author URI: http://www.rockethouse.com.au
 */
 
-function my_admin_theme_style() {
-    wp_enqueue_style('default-admin', plugins_url('css/wp-admin.css', __FILE__));
-    wp_enqueue_style('default-colours', plugins_url('css/colors.css', __FILE__));
-    wp_enqueue_script('modernizr', plugins_url('js/modernizr.custom.63321.js', __FILE__));
-    wp_enqueue_script('altcheckbox', plugins_url('js/jquery.alt-checkbox.min.js', __FILE__));
-    wp_enqueue_script('adminjs', plugins_url('js/admin.js', __FILE__));
 
+add_filter( 'admin_body_class', 'rw_admin_body_class' );
+function rw_admin_body_class( $classes )
+{
+    $classes .= '' . 'rkt';
+    return $classes;
+}
+
+function my_admin_theme_style() {
+    wp_enqueue_style('default-admin', plugins_url('css/rkt-admin.css', __FILE__));
+    wp_enqueue_script('adminjs', plugins_url('js/admin.js', __FILE__));
 }
 
 
 add_action('admin_enqueue_scripts', 'my_admin_theme_style');
 add_action('login_enqueue_scripts', 'my_admin_theme_style');
 
-// this will remove the stylesheet when init fires
-add_action('admin_init','your_remove_default_stylesheets');
-// this is your function to deregister the default admin stylesheet
-function your_remove_default_stylesheets() {
-    wp_deregister_style('wp-admin');
-    //wp_deregister_style('dashicons');
-}
 
 add_action( 'admin_menu', 'admin_remove_menu_pages' );
 
@@ -46,7 +43,7 @@ add_action( 'admin_menu', 'manager_remove_menu_pages', 9999 );
 function manager_remove_menu_pages() {
 
     $user_id = get_current_user_id();
-    if (in_array($user_id, array(3, 5))) { // Add Admin User ID's here
+    if (in_array($user_id, array(2))) { // Add Admin User ID's here
         remove_menu_page('edit-comments.php');
         remove_menu_page('edit.php');
         remove_menu_page('upload.php');
@@ -56,7 +53,7 @@ function manager_remove_menu_pages() {
         remove_menu_page('options-general.php');
         remove_menu_page('themes.php');
         remove_menu_page('tools.php');
-        remove_menu_page('edit.php?post_type=acf');
+        remove_menu_page('edit.php?post_type=acf-field-group');
         remove_menu_page('cpt_main_menu');
         remove_menu_page('eml-taxonomies-options');
         remove_menu_page('wpa_dashboard');
