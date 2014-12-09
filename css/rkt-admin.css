@@ -454,4 +454,9 @@ body.rkt.login #backtoblog {
 	opacity: 0.4
 }
 
-
+body.rkt.login .message,
+body.rkt.login #login_error {
+	border-left: none;
+	background: none;
+	text-align: center
+}
