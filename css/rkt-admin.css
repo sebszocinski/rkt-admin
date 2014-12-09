@@ -430,33 +430,28 @@ body.rkt #adminmenu div.wp-menu-image:before {
 	content: '\e086';
 }
 
-
-/*  Entertainment Calendar Stuff  */
-
-body.post-type-event .misc-pub-visibility,
-body.post-type-event .misc-pub-post-status,
-body.post-type-event #minor-publishing-actions,
-body.post-type-event .curtime #timestamp,
-body.post-type-event a.edit-timestamp,
-body.post-type-event #timestampdiv > p {
-	display: none !important;
+body.rkt.login {
+	background: #fff
 }
 
-body.post-type-event #timestampdiv {
-	padding: 0 3px 3px;
-	font-size: 20px;
+body.rkt.login input[type="text"],
+body.rkt.login input[type="password"],
+body.rkt.login input:-webkit-autofill,
+input:-webkit-autofill {
+	background: #F9F9F9 !important;
+	background-color: #F9F9F9 !important;
+	border: none !important;
+	padding: 5px 8px;
 }
 
-body.post-type-event #timestampdiv select,
-body.post-type-event #timestampdiv input {
-	font-size: 20px;
-	height: 40px;
-	line-height: 40px;
+body.rkt.login form .forgetmenot {
+	padding-top: 7px
+}
+
+body.rkt.login #nav,
+body.rkt.login #backtoblog {
 	text-align: center;
+	opacity: 0.4
 }
 
-body.post-type-event #timestampdiv input#jj {
-	float: left;
-	margin-right: 5px
-}
 

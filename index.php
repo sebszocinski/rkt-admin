@@ -10,6 +10,18 @@ Author URI: http://www.rockethouse.com.au
 */
 
 
+add_action( 'login_enqueue_scripts', 'custom_login_enqueue_scripts' );
+function custom_login_enqueue_scripts()
+{
+    wp_enqueue_script('jquery');
+}
+
+function login_classes( $classes ) {
+    $classes[] = 'rkt';
+    return $classes;
+}
+add_filter( 'login_body_class', 'login_classes' );
+
 add_filter( 'admin_body_class', 'rw_admin_body_class' );
 function rw_admin_body_class( $classes )
 {

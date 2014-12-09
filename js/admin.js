@@ -2,31 +2,40 @@ jQuery(document).ready(function(){
 
 	var $ = jQuery;
 
-	$('<a href="/" class="view-site"></a>').prependTo('#wpadminbar');
+	jQuery('<a href="/" class="view-site"></a>').prependTo('#wpadminbar');
+
+	jQuery('#user_login').attr( 'placeholder', 'Username' );
+	jQuery('#user_pass').attr( 'placeholder', 'Password' );
+
+	var userInput = jQuery('label[for="user_login"] input');
+	var passInput = jQuery('label[for="user_pass"] input');
+
+	jQuery('label[for="user_login"]').html(userInput);
+	jQuery('label[for="user_pass"]').html(passInput);
 
 
 	jQuery(document).ready(function($){
-	    $('#wpadminbar').find('li.menupop').hover( function(){
-	        $(this).toggleClass('hover');
+	    jQuery('#wpadminbar').find('li.menupop').hover( function(){
+	        jQuery(this).toggleClass('hover');
 	    });
 	    // Bring menu into scope(defined by common.js in wordpress)
 	    var menu;
 	    // Copy of the function from common.js, just without hoverIntent
-	    $('li.wp-has-submenu', menu).hover(
+	    jQuery('li.wp-has-submenu', menu).hover(
 	        function(e){
-	            var b, h, o, f, m = $(this).find('.wp-submenu'), menutop, wintop, maxtop;
+	            var b, h, o, f, m = jQuery(this).find('.wp-submenu'), menutop, wintop, maxtop;
 
-	            if ( !$(document.body).hasClass('folded') && $(this).hasClass('wp-menu-open') )
+	            if ( !jQuery(document.body).hasClass('folded') && jQuery(this).hasClass('wp-menu-open') )
 	                return;
 
-	            menutop = $(this).offset().top;
-	            wintop = $(window).scrollTop();
+	            menutop = jQuery(this).offset().top;
+	            wintop = jQuery(window).scrollTop();
 	            maxtop = menutop - wintop - 30; // max = make the top of the sub almost touch admin bar
 
 	            b = menutop + m.height() + 1; // Bottom offset of the menu
-	            h = $('#wpwrap').height(); // Height of the entire page
+	            h = jQuery('#wpwrap').height(); // Height of the entire page
 	            o = 60 + b - h;
-	            f = $(window).height() + wintop - 15; // The fold
+	            f = jQuery(window).height() + wintop - 15; // The fold
 
 	            if ( f < (b - o) )
 	                o = b - f;
@@ -42,7 +51,7 @@ jQuery(document).ready(function(){
 	            m.addClass('sub-open');
 	        },
 	        function(){
-	            $(this).find('.wp-submenu').removeClass('sub-open');
+	            jQuery(this).find('.wp-submenu').removeClass('sub-open');
 	        }
 	    );
 	});
