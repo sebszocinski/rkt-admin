@@ -258,6 +258,7 @@ body.rkt .wrap .add-new-h2, .wrap .add-new-h2:active {
 
 
 
+
 .view-site {
 	color: #fff;
 	float: left;
@@ -309,6 +310,11 @@ body.rkt #collapse-menu span {
 ul#adminmenu a.wp-has-current-submenu:after,
 ul#adminmenu > li.current > a.current:after {
 	display: none;
+}
+
+#adminmenu li.opensub>a.menu-top,
+#adminmenu li>a.menu-top:focus{
+	background-color:transparent;
 }
 
 
