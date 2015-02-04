@@ -44,6 +44,10 @@ body.rkt .acf-icon {
 	-webkit-border-radius: 15px !important;
 }
 
+.wp-core-ui .button-primary.focus, .wp-core-ui .button-primary.hover, .wp-core-ui .button-primary:focus, .wp-core-ui .button-primary:hover {
+	background: #EC5B51
+}
+
 #wpadminbar .quicklinks a,
 #wpadminbar .quicklinks .ab-empty-item,
 #wpadminbar .shortlink-input {
@@ -315,6 +319,10 @@ ul#adminmenu > li.current > a.current:after {
 #adminmenu li.opensub>a.menu-top,
 #adminmenu li>a.menu-top:focus{
 	background-color:transparent;
+}
+
+#message {
+	box-shadow: 5px 5px rgba(0,0,0,0.04) !important;
 }
 
 
