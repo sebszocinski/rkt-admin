@@ -364,6 +364,10 @@ ul#adminmenu > li.current > a.current:after {
 	text-align: center;
 }
 
+#wpadminbar .menupop .ab-sub-wrapper, #wpadminbar .shortlink-input {
+	background: #26292C !important
+}
+
 div.wp-menu-image img {
 	display: none
 }
