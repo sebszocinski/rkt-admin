@@ -19,8 +19,21 @@ body.rkt * {
 
 body.rkt #wpadminbar {
 	color: white;
-	background: #363b3f url(../images/logo.png) no-repeat 15px 10px;
+	background: #363b3f;
 	height: 42px;
+}
+
+body.rkt #wpadminbar a.view-site {
+	font-size: 13px;
+	font-weight: 100;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	padding: 5px 15px;
+}
+
+body.rkt #wpadminbar a.view-site:hover,
+body.rkt #wpadminbar a.view-site:focus {
+	color: #fff;
 }
 
 body.rkt #wpcontent {
@@ -446,6 +459,10 @@ body.rkt #adminmenu div.wp-menu-image:before {
 .icon16.icon-generic:before,
 #adminmenu .toplevel_page_gf_edit_forms div.wp-menu-image:before {
 	content: '\e086';
+}
+
+#adminmenu .toplevel_page_gf_edit_forms div.wp-menu-image {
+	background-image: none !important;
 }
 
 body.rkt.login {

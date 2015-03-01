@@ -10,6 +10,12 @@ Author URI: http://www.rockethouse.com.au
 */
 
 
+add_action('admin_head', 'site_name_meta');
+
+function site_name_meta() {
+    echo '<meta name="site_name" content="' . get_bloginfo('name') . '">';
+}
+
 add_action( 'login_enqueue_scripts', 'custom_login_enqueue_scripts' );
 function custom_login_enqueue_scripts()
 {
@@ -81,6 +87,10 @@ function remove_admin_columns() {
     remove_post_type_support( 'post', 'author' );
     remove_post_type_support( 'page', 'author' );
 }
+
+
+
+
 
 
 

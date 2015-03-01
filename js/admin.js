@@ -2,7 +2,9 @@ jQuery(document).ready(function(){
 
 	var $ = jQuery;
 
-	jQuery('<a href="/" class="view-site"></a>').prependTo('#wpadminbar');
+	var sitename = jQuery('meta[name=site_name]').attr("content");
+
+	jQuery('<a href="/" target="_blank" class="view-site">' + sitename + '</a>').prependTo('#wpadminbar');
 
 	jQuery('#user_login').attr( 'placeholder', 'Username' );
 	jQuery('#user_pass').attr( 'placeholder', 'Password' );
