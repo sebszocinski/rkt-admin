@@ -28,13 +28,23 @@ body.rkt #wpadminbar a.view-site {
 	font-weight: 100;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	padding: 5px 15px;
+	padding: 0px 15px;
+	line-height: 43px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	color: #fff;
+	float: left;
+	display: block;
+	height: 100% !important;
+	width: 170px !important;
 }
 
 body.rkt #wpadminbar a.view-site:hover,
 body.rkt #wpadminbar a.view-site:focus {
 	color: #fff;
 }
+
 
 body.rkt #wpcontent {
 	margin-top: 10px;
@@ -276,13 +286,7 @@ body.rkt .wrap .add-new-h2, .wrap .add-new-h2:active {
 
 
 
-.view-site {
-	color: #fff;
-	float: left;
-	display: block;
-	height: 100% !important;
-	width: 200px !important;
-}
+
 
 body.rkt #collapse-button div:after {
 	content: '\e07a';
@@ -494,4 +498,85 @@ body.rkt.login #login_error {
 	border-left: none;
 	background: none;
 	text-align: center
+}
+
+
+
+
+/*RESPONSIVE*/
+
+@media screen and (max-width: 700px) {
+
+	body.rkt #wpcontent {
+		margin-top: 0;
+	}
+
+	body.rkt #wpadminbar a.view-site {
+		display: none;
+	}
+
+	body.rkt #wpadminbar .ab-icon {
+		height: 42px;
+		width: 42px;
+	}
+
+	body.rkt #wpadminbar #wp-admin-bar-menu-toggle a {
+		border: none;
+		height: 42px;
+		width: 42px;
+	}
+
+	body.rkt #wpadminbar #wp-admin-bar-menu-toggle .ab-icon:before {
+		font-size: 25px;
+		height: 42px;
+		width: 42px;
+	}
+
+	body.rkt.auto-fold #adminmenu {
+		top: 42px;
+	}
+
+	body.rkt.auto-fold #adminmenu li.menu-top > a {
+		padding: 0;
+		height: 44px;
+	}
+
+	body.rkt.auto-fold #adminmenu .wp-menu-name {
+		border-bottom: none;
+	}
+
+	body.rkt #wpadminbar #wp-admin-bar-edit>.ab-item,
+	body.rkt #wpadminbar #wp-admin-bar-my-account>.ab-item,
+	body.rkt #wpadminbar #wp-admin-bar-my-sites>.ab-item,
+	body.rkt #wpadminbar #wp-admin-bar-site-name>.ab-item {
+		height: 42px;
+	}
+
+	body.rkt.auto-fold #adminmenuback,
+	body.rkt.auto-fold #adminmenuwrap {
+		display: block;
+		left: -190px;
+		transition: all 0.3s ease;
+	}
+
+	body.rkt.auto-fold .wp-responsive-open #adminmenuback,
+	body.rkt.auto-fold .wp-responsive-open #adminmenuwrap {
+		display: block;
+		left: 0;
+	}
+
+
+	body.rkt #wpbody {
+		position: relative;
+		transition: all 0.3s ease;
+		right: 0;
+	}
+
+	body.rkt .wp-responsive-open #wpbody {
+		right: -190px;
+		transition: all 0.3s ease;
+	}
+
+
+
 }
