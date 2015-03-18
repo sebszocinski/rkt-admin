@@ -1,52 +1,67 @@
 <?php
-
 /*
 Plugin Name: Rockethouse Wordpress Admin UI
 Plugin URI: http://www.rockethouse.com.au
 Description: Rockethouse Wordpress Admin UI Theme - Upload and Activate.
 Author: Rockethouse
-Version: 3.0
+Version: 3.0.1
 Author URI: http://www.rockethouse.com.au
 */
 
-
-add_action('admin_head', 'site_name_meta');
-
+/**
+ * Echo site_name meta from WP Blog Info
+ */
 function site_name_meta() {
     echo '<meta name="site_name" content="' . get_bloginfo('name') . '">';
 }
+add_action('admin_head', 'site_name_meta');
 
-add_action( 'login_enqueue_scripts', 'custom_login_enqueue_scripts' );
+
+/**
+ * Append jQuery to login screen.
+ */
 function custom_login_enqueue_scripts()
 {
     wp_enqueue_script('jquery');
 }
+add_action( 'login_enqueue_scripts', 'custom_login_enqueue_scripts' );
 
+/**
+ * Add rkt to login form classes.
+ * @param $classes
+ * @return array
+ */
 function login_classes( $classes ) {
     $classes[] = 'rkt';
     return $classes;
 }
 add_filter( 'login_body_class', 'login_classes' );
 
-add_filter( 'admin_body_class', 'rw_admin_body_class' );
+/**
+ * Add rkt to body classes array.
+ * @param $classes
+ * @return string
+ */
 function rw_admin_body_class( $classes )
 {
     $classes .= '' . 'rkt';
     return $classes;
 }
+add_filter( 'admin_body_class', 'rw_admin_body_class' );
 
+/**
+ * Append Custom styles to admin pages.
+ */
 function my_admin_theme_style() {
     wp_enqueue_style('default-admin', plugins_url('css/rkt-admin.css', __FILE__));
     wp_enqueue_script('adminjs', plugins_url('js/admin.js', __FILE__));
 }
-
-
-add_action('admin_enqueue_scripts', 'my_admin_theme_style');
 add_action('login_enqueue_scripts', 'my_admin_theme_style');
+add_action('admin_enqueue_scripts', 'my_admin_theme_style');
 
-
-add_action( 'admin_menu', 'admin_remove_menu_pages' );
-
+/**
+ * Remove Comments and Posts Page
+ */
 function admin_remove_menu_pages() {
 
     $user_id = get_current_user_id();
@@ -55,9 +70,12 @@ function admin_remove_menu_pages() {
         remove_menu_page('edit.php');
     }
 }
+add_action( 'admin_menu', 'admin_remove_menu_pages' );
 
-add_action( 'admin_menu', 'manager_remove_menu_pages', 9999 );
 
+/**
+ * Remove Menu Pages for Manager Role
+ */
 function manager_remove_menu_pages() {
 
     $user_id = get_current_user_id();
@@ -77,9 +95,12 @@ function manager_remove_menu_pages() {
         remove_menu_page('wpa_dashboard');
     }
 }
+add_action( 'admin_menu', 'manager_remove_menu_pages', 9999 );
 
-// REMOVE ADMIN COLUMNS FOR COMMENTS & AUTHORS
-add_action( 'admin_init', 'remove_admin_columns' );
+
+/**
+ * REMOVE ADMIN COLUMNS FOR COMMENTS & AUTHORS
+ */
 function remove_admin_columns() {
     remove_post_type_support( 'post', 'comments' );
     remove_post_type_support( 'page', 'comments' );
@@ -87,37 +108,34 @@ function remove_admin_columns() {
     remove_post_type_support( 'post', 'author' );
     remove_post_type_support( 'page', 'author' );
 }
-
-
-
-
-
-
+add_action( 'admin_init', 'remove_admin_columns' );
 
 // **** START Custom  Menu Link (Eg is for a Webletter)
 
-//add_action( 'admin_menu', 'register_menu_page' );
+/*add_action( 'admin_menu', 'register_menu_page' );
 
-// function register_menu_page(){
-//     add_menu_page( __( 'Webletter', 'text_domain' ), __( 'Webletter', 'text_domain' ), 'manage_options', 'webletter', 'redirect_url', 6 );
-// }
+ function register_menu_page(){
+     add_menu_page( __( 'Webletter', 'text_domain' ), __( 'Webletter', 'text_domain' ), 'manage_options', 'webletter', 'redirect_url', 6 );
+ }
 
-// function redirect_url() {
-//     $redirect_url = get_bloginfo('url').'/wp-admin/admin.php?page=webletter';
-//     $pageURL = 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-//     $external_redirect_url = 'http://enews.rockethouse.com.au';
+ function redirect_url() {
+     $redirect_url = get_bloginfo('url').'/wp-admin/admin.php?page=webletter';
+     $pageURL = 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+     $external_redirect_url = 'http://enews.rockethouse.com.au';
 
-//     if ($pageURL == $redirect_url) {
-//         // header ('location:' + $external_redirect_url);
-//         wp_redirect( $external_redirect_url, 302 );
-//     }
-// }
+     if ($pageURL == $redirect_url) {
+         // header ('location:' + $external_redirect_url);
+         wp_redirect( $external_redirect_url, 302 );
+     }
+ }*/
 
 // add_action( 'admin_menu', 'redirect_url' );
 
 // **** END Custom External Menu Link
 
-
+/**
+ * Add Gravity Forms to editor role.
+ */
 function add_grav_forms(){
     $role = get_role('editor');
     $role->add_cap('gform_full_access');
@@ -125,16 +143,20 @@ function add_grav_forms(){
 add_action('admin_menu','add_grav_forms');
 
 
-
-add_filter('gettext', 'rename_admin_menu_items');
-add_filter('ngettext', 'rename_admin_menu_items');
-
+/**
+ * @param $menu
+ * @return mixed
+ */
 function rename_admin_menu_items( $menu ) {
     $menu = str_ireplace( 'WooCommerce', 'Store', $menu );
     return $menu;
 }
+add_filter('gettext', 'rename_admin_menu_items');
+add_filter('ngettext', 'rename_admin_menu_items');
 
-
+/**
+ * Remove Admin bar links in Admin Area
+ */
 function remove_admin_bar_links() {
     global $wp_admin_bar;
     $wp_admin_bar->remove_menu('wp-logo');          // Remove the WordPress logo
@@ -198,15 +220,21 @@ function rha_theme_menu() {
 
 
 // add the admin options page
-add_action('admin_menu', 'plugin_admin_add_page');
-
+/**
+ *
+ */
 function plugin_admin_add_page() {
     add_options_page('RKT Admin', 'RKT Admin', 'manage_options', 'rkt-admin', 'rkt_options_page');
 }
+add_action('admin_menu', 'plugin_admin_add_page');
+
 
 
 add_action('admin_init', 'plugin_admin_init');
 
+/**
+ *
+ */
 function plugin_admin_init(){
     register_setting( 'plugin_options', 'plugin_options', 'plugin_options_validate' );
     add_settings_section('plugin_main', 'Main Settings', 'plugin_section_text', 'rkt-admin');
@@ -214,30 +242,33 @@ function plugin_admin_init(){
 }
 
 // display the admin options page
+/**
+ *
+ */
 function rkt_options_page() {
-?>
-    <div class="wrap">
-        <h2>RKT Settings</h2>
-        <p>Configure your RKT Admin here.</p>
-        <form action="options.php" method="post">
-            <?php settings_fields('plugin_options'); ?>
-            <?php do_settings_sections('rkt-admin'); ?>
-            <p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="<?php esc_attr_e('Save Changes'); ?>"></p>
-        </form>
-    </div>
-<?php
+    require('tmpl/options.tmpl.php');
 }
 
+/**
+ *
+ */
 function plugin_section_text() {
     echo '<p>Main description of this section here.</p>';
 }
 
+/**
+ *
+ */
 function plugin_setting_string() {
     $options = get_option('plugin_options');
     echo "<input id='plugin_text_string' name='plugin_options[text_string]' size='40' type='text' value='{$options['text_string']}' />";
 }
 
 // validate our options
+/**
+ * @param $input
+ * @return mixed
+ */
 function plugin_options_validate($input) {
     $options = get_option('plugin_options');
     $options['text_string'] = trim($input['text_string']);
@@ -245,4 +276,6 @@ function plugin_options_validate($input) {
         $options['text_string'] = '';
     }
     return $options;
-}?>
+}
+
+?>
