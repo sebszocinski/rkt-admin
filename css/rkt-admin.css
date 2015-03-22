@@ -465,8 +465,17 @@ body.rkt #adminmenu div.wp-menu-image:before {
 	content: '\e086';
 }
 
-#adminmenu .toplevel_page_gf_edit_forms div.wp-menu-image {
+#adminmenu .toplevel_page_gf_edit_forms div.wp-menu-image, {
 	background-image: none !important;
+}
+
+body.rkt #toplevel_page_w3tc_dashboard .wp-menu-image {
+	background: none !important;
+}
+
+.icon16.icon-generic:before,
+#adminmenu .toplevel_page_w3tc_dashboard div.wp-menu-image:before {
+	content: '\e01c';
 }
 
 body.rkt.login {
