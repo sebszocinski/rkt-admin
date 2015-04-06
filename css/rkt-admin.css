@@ -465,7 +465,7 @@ body.rkt #adminmenu div.wp-menu-image:before {
 	content: '\e086';
 }
 
-#adminmenu .toplevel_page_gf_edit_forms div.wp-menu-image, {
+body.rkt #adminmenu .toplevel_page_gf_edit_forms div.wp-menu-image {
 	background-image: none !important;
 }
 
