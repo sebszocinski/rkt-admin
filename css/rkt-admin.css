@@ -478,6 +478,14 @@ body.rkt #toplevel_page_w3tc_dashboard .wp-menu-image {
 	content: '\e01c';
 }
 
+.icon16.icon-site:before,
+#adminmenu .menu-icon-site div.wp-menu-image:before {
+	content: '\e037';
+}
+
+
+
+
 body.rkt.login {
 	background: #fff
 }
@@ -509,6 +517,12 @@ body.rkt.login #login_error {
 	text-align: center
 }
 
+
+#wpadminbar #wp-admin-bar-my-sites>.ab-item:before,
+#wpadminbar #wp-admin-bar-site-name>.ab-item:before,
+#wpadminbar .quicklinks li .blavatar {
+	display: none;
+}
 
 
 
