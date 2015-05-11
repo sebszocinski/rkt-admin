@@ -1,11 +1,11 @@
 <?php
 
 /*
-Plugin Name: Rockethouse Wordpress Admin UI
+Plugin Name: Rockethouse WordPress Admin UI
 Plugin URI: http://www.rockethouse.com.au
-Description: Rockethouse Wordpress Admin UI Theme - Upload and Activate.
+Description: Rockethouse WordPress Admin UI Theme - Upload and Activate.
 Author: Rockethouse
-Version: 3.0.51
+Version: 3.0.6
 Author URI: http://www.rockethouse.com.au
 GitHub Plugin URI: https://github.com/rockethouse/rkt-admin
 GitHub Branch: master
@@ -50,12 +50,8 @@ add_action('login_enqueue_scripts', 'my_admin_theme_style');
 add_action( 'admin_menu', 'admin_remove_menu_pages' );
 
 function admin_remove_menu_pages() {
-
-    $user_id = get_current_user_id();
-    if (in_array($user_id, array(1))) { // Add Admin User ID's here
-        remove_menu_page('edit-comments.php');
-        remove_menu_page('edit.php');
-    }
+    remove_menu_page('edit-comments.php');
+    remove_menu_page('edit.php');
 }
 
 add_action( 'admin_menu', 'manager_remove_menu_pages', 9999 );
@@ -63,10 +59,9 @@ add_action( 'admin_menu', 'manager_remove_menu_pages', 9999 );
 function manager_remove_menu_pages() {
 
     $user_id = get_current_user_id();
-    if (in_array($user_id, array(2))) { // Add Admin User ID's here
+    if ($user_id != 1) { // Add Admin User ID's here
         remove_menu_page('edit-comments.php');
         remove_menu_page('edit.php');
-        remove_menu_page('upload.php');
         remove_menu_page('profile.php');
         remove_menu_page('plugins.php');
         remove_menu_page('users.php');
@@ -74,6 +69,7 @@ function manager_remove_menu_pages() {
         remove_menu_page('themes.php');
         remove_menu_page('tools.php');
         remove_menu_page('edit.php?post_type=acf-field-group');
+        remove_menu_page('edit.php?post_type=acf');
         remove_menu_page('cpt_main_menu');
         remove_menu_page('eml-taxonomies-options');
         remove_menu_page('wpa_dashboard');
