@@ -484,10 +484,22 @@ body.rkt #toplevel_page_w3tc_dashboard .wp-menu-image {
 }
 
 
-
+body.rkt.login #login {
+	width: 300px;
+}
 
 body.rkt.login {
-	background: #fff
+	background: #2B2F32
+}
+
+body.rkt.login form {
+	background: none;
+	border-bottom: 1px solid #33373A;
+	padding: 0px 0 30px;
+}
+
+body.rkt.login h1 a {
+	background-image: none,url(../images/wordpress-logo.svg);
 }
 
 body.rkt.login input[type="text"],
@@ -497,11 +509,37 @@ input:-webkit-autofill {
 	background: #F9F9F9 !important;
 	background-color: #F9F9F9 !important;
 	border: none !important;
-	padding: 5px 8px;
+	padding: 10px 12px;
+	font-size: 20px;
+	margin: 0;
 }
 
+body.rkt.login input#user_login {
+	border-radius: 2px 2px 0 0 !important;
+	padding-bottom: 11px;
+}
+
+body.rkt.login input#user_pass {
+	border-radius: 0 0 2px 2px !important;
+	border-top: 1px solid #ccc !important
+}
+
+body.rkt.login form#lostpasswordform input#user_login {
+	border-radius: 2px !important;
+}
+
+
 body.rkt.login form .forgetmenot {
-	padding-top: 7px
+	display: none;
+}
+
+body.rkt.login input#wp-submit {
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	margin-top: 20px;
+	border-radius: 2px !important;
+	font-size: 15px;
 }
 
 body.rkt.login #nav,
@@ -514,7 +552,8 @@ body.rkt.login .message,
 body.rkt.login #login_error {
 	border-left: none;
 	background: none;
-	text-align: center
+	text-align: center;
+	color: #fff;
 }
 
 
