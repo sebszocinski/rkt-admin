@@ -9,6 +9,10 @@
 	font-style: normal;
 }
 
+html.login {
+	background: #2B2F32;
+}
+
 body.rkt * {
 	font-weight: 100;
 	box-shadow: none !important;
