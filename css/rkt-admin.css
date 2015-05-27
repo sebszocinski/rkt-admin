@@ -487,6 +487,12 @@ body.rkt #toplevel_page_w3tc_dashboard .wp-menu-image {
 	content: '\e037';
 }
 
+.icon16.icon-generic:before,
+#adminmenu .toplevel_page_loco-translate div.wp-menu-image:before {
+	content: '\e07d';
+}
+
+
 
 body.rkt.login #login {
 	width: 300px;
