@@ -5,7 +5,7 @@ Plugin Name: Rockethouse WordPress Admin UI
 Plugin URI: http://www.rockethouse.com.au
 Description: Rockethouse WordPress Admin UI Theme - Upload and Activate.
 Author: Rockethouse
-Version: 3.0.7
+Version: 3.1
 Author URI: http://www.rockethouse.com.au
 GitHub Plugin URI: https://github.com/rockethouse/rkt-admin
 GitHub Branch: master
@@ -50,8 +50,8 @@ add_action('login_enqueue_scripts', 'my_admin_theme_style');
 add_action( 'admin_menu', 'admin_remove_menu_pages' );
 
 function admin_remove_menu_pages() {
-    remove_menu_page('edit-comments.php');
-    remove_menu_page('edit.php');
+    defined('RKT_SHOW_COMMENTS') or remove_menu_page('edit-comments.php');
+    defined('RKT_SHOW_POSTS') or remove_menu_page('edit.php');
 }
 
 add_action( 'admin_menu', 'manager_remove_menu_pages', 9999 );
@@ -60,17 +60,17 @@ function manager_remove_menu_pages() {
 
     $user_id = get_current_user_id();
     if ($user_id != 1) { // Add Admin User ID's here
-        remove_menu_page('edit-comments.php');
-        remove_menu_page('edit.php');
-        remove_menu_page('profile.php');
-        remove_menu_page('plugins.php');
-        remove_menu_page('users.php');
-        remove_menu_page('options-general.php');
-        remove_menu_page('themes.php');
-        remove_menu_page('tools.php');
-        remove_menu_page('edit.php?post_type=acf-field-group');
-        remove_menu_page('edit.php?post_type=acf');
-        remove_menu_page('cpt_main_menu');
+        defined('RKT_SHOW_COMMENTS') or remove_menu_page('edit-comments.php');
+        defined('RKT_SHOW_POSTS') or remove_menu_page('edit.php');
+        defined('RKT_SHOW_PROFILE') or remove_menu_page('profile.php');
+        defined('RKT_SHOW_PLUGINS') or remove_menu_page('plugins.php');
+        defined('RKT_SHOW_USERS') or remove_menu_page('users.php');
+        defined('RKT_SHOW_OPTIONS') or remove_menu_page('options-general.php');
+        defined('RKT_SHOW_THEMES') or remove_menu_page('themes.php');
+        defined('RKT_SHOW_TOOLS') or remove_menu_page('tools.php');
+        defined('RKT_SHOW_ACFPRO') or remove_menu_page('edit.php?post_type=acf-field-group');
+        defined('RKT_SHOW_ACF') or remove_menu_page('edit.php?post_type=acf');
+        defined('RKT_SHOW_CPT') or remove_menu_page('cpt_main_menu');
         remove_menu_page('eml-taxonomies-options');
         remove_menu_page('wpa_dashboard');
     }
