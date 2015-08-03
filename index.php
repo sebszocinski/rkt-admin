@@ -38,9 +38,11 @@ function rw_admin_body_class( $classes )
 }
 
 function my_admin_theme_style() {
+    wp_enqueue_style('roboto', '//fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic');
     wp_enqueue_style('default-admin', plugins_url('css/rkt-admin.css', __FILE__));
     wp_enqueue_script('adminjs', plugins_url('js/admin.js', __FILE__));
 }
+
 
 
 add_action('admin_enqueue_scripts', 'my_admin_theme_style');

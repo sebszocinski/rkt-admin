@@ -15,6 +15,10 @@ jQuery(document).ready(function(){
 	jQuery('label[for="user_login"]').html(userInput);
 	jQuery('label[for="user_pass"]').html(passInput);
 
+	jQuery('ul#adminmenu > li > a, .button').click(function(){
+		$(this).addClass('clicked');
+	});
+
 
 	jQuery(document).ready(function($){
 	    jQuery('#wpadminbar').find('li.menupop').hover( function(){
