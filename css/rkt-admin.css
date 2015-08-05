@@ -14,6 +14,10 @@
 	background-color: transparent !important;
 }
 
+#adminmenu li.wp-has-submenu.wp-not-current-submenu:hover:after {
+	display: none !important;
+}
+
 html, body.rkt {
 	font-family: 'Roboto' !important;
 	letter-spacing: 0.5px
