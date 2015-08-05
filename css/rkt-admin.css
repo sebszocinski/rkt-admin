@@ -9,6 +9,11 @@
 	font-style: normal;
 }
 
+#wp-auth-check-wrap #wp-auth-check {
+	padding: 0 !important;
+	background-color: transparent !important;
+}
+
 html, body.rkt {
 	font-family: 'Roboto' !important;
 	letter-spacing: 0.5px
@@ -417,8 +422,7 @@ ul#adminmenu > li.current > a.current:after {
 	box-shadow: 5px 5px rgba(0,0,0,0.04) !important;
 }
 
-#adminmenu > li > a,
-.button {
+#adminmenu > li > a {
 	overflow: hidden;
 	position: relative;
 }
@@ -427,8 +431,7 @@ ul#adminmenu > li.current > a.current:after {
 	padding: 0 12px;
 }
 
-#adminmenu > li > a:after,
-.button:after {
+#adminmenu > li > a:after {
 	content: '';
 	position: absolute;
 	top: 50%;
@@ -442,8 +445,7 @@ ul#adminmenu > li.current > a.current:after {
 	background: rgba(132, 144, 154, 0.1)
 }
 
-#adminmenu > li > a.clicked:after,
-.button.clicked:after {
+#adminmenu > li > a.clicked:after {
 	animation: anim-effect-boris 0.3s forwards;
 }
 
