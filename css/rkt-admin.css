@@ -100,6 +100,18 @@ input[type=checkbox]:focus, input[type=color]:focus, input[type=date]:focus, inp
 	background: #4D555A
 }
 
+.wp-core-ui .button-primary.active, .wp-core-ui .button-primary.active:focus, .wp-core-ui .button-primary.active:hover, .wp-core-ui .button-primary:active {
+	background: #9A9A9A;
+}
+
+body.rkt.wp-core-ui .button-primary-disabled, body.rkt.wp-core-ui .button-primary.disabled, body.rkt.wp-core-ui .button-primary:disabled, body.rkt.wp-core-ui .button-primary[disabled] {
+	background: #9A9A9A !important;
+	color: #fff !important;
+	text-shadow:none !important;
+}
+
+
+
 #wpadminbar .quicklinks a,
 #wpadminbar .quicklinks .ab-empty-item,
 #wpadminbar .shortlink-input {
@@ -704,6 +716,28 @@ body.rkt.login #login_error {
 	font-weight: 400
 }
 
+body.rkt input[type=radio]:checked:before,
+body.rkt input[type=checkbox]:checked:before {
+	color: #616161
+}
+
+body.rkt #misc-publishing-actions label:before,
+body.rkt #misc-publishing-actions .misc-pub-section:before,
+body.rkt #misc-publishing-actions #timestamp:before {
+	display: none !important;
+}
+
+body.rkt .wp-media-buttons .add_media span.wp-media-buttons-icon:before {
+	font-family: 'Simple-Line-Icons';
+	content: "\e032";
+	font-size: 18px;
+	position: relative;
+	top: -2px;
+}
+
+body.rkt .wp-media-buttons .button {
+	padding-top: 1px;
+}
 
 
 /*RESPONSIVE*/
