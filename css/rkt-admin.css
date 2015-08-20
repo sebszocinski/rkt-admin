@@ -110,7 +110,33 @@ body.rkt.wp-core-ui .button-primary-disabled, body.rkt.wp-core-ui .button-primar
 	text-shadow:none !important;
 }
 
+body.rkt .wrap .add-new-h2, body.rkt .wrap .add-new-h2:active, body.rkt .wrap .page-title-action, body.rkt .wrap .page-title-action:active {
+	color: #363B3F;
+	font-weight: 500
+}
 
+body.rkt .wrap .add-new-h2:hover, body.rkt .wrap .page-title-action:hover {
+	background: #363B3F;
+	color: #fff;
+	font-weight: 500
+}
+
+body.rkt #adminmenu .awaiting-mod, body.rkt #adminmenu .update-plugins {
+	line-height: 15px;
+}
+
+body.rkt #adminmenu li a.wp-has-current-submenu .update-plugins, body.rkt #adminmenu li.current a .awaiting-mod,
+body.rkt #adminmenu .awaiting-mod, body.rkt #adminmenu .update-plugins {
+	background: #F53D4E
+}
+
+body.rkt .plugin-card .install-now:before, body.rkt .plugin-card .update-now:before, body.rkt .plugin-update-tr .update-message:before {
+	color: #F53D4E
+}
+
+body.rkt #adminmenu li .awaiting-mod span, body.rkt #adminmenu li span.update-plugins span {
+	padding: 1px 5px 0 6px
+}
 
 #wpadminbar .quicklinks a,
 #wpadminbar .quicklinks .ab-empty-item,
