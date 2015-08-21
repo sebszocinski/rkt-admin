@@ -1,0 +1,9 @@
+{
+    "name": "rockethouse/rkt-wp-admin",
+    "description": "Custom Wordpress Admin UI Theme",
+    "require": {
+        "php": ">=5.3.0",
+	    "vlucas/phpdotenv": "^2.0.1",
+	    "johnpbloch/wordpress": "4.3"
+    }
+}
