@@ -41,6 +41,10 @@ body.rkt #wpadminbar {
 	height: 42px;
 }
 
+body.rkt.dev #wpadminbar {
+	box-shadow: inset 0 2px 0 0 #F53D4E !important;
+}
+
 body.rkt #wpadminbar a.view-site {
 	font-size: 15px;
 	font-weight: 100;
