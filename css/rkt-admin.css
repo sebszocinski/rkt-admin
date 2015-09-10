@@ -41,10 +41,6 @@ body.rkt #wpadminbar {
 	height: 42px;
 }
 
-body.rkt.dev #wpadminbar {
-	box-shadow: inset 0 2px 0 0 #F53D4E !important;
-}
-
 body.rkt #wpadminbar a.view-site {
 	font-size: 15px;
 	font-weight: 100;
@@ -850,4 +846,10 @@ body.rkt .wp-media-buttons .button {
 
 
 
+}
+
+
+
+#wpadminbar .ab-icon, #wpadminbar .ab-item:before, #wpadminbar>#wp-toolbar>#wp-admin-bar-root-default .ab-icon {
+	display: none;
 }
