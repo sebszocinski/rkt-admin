@@ -30,7 +30,9 @@ html.login {
 body.rkt * {
 	font-weight: 100;
 	box-shadow: none !important;
-	-webkit-box-shadow:none !important;
+	text-shadow: none !important;
+	-webkit-text-shadow: none !important;
+	-webkit-box-shadow: none !important;
 	border-radius: 0 !important;
 	-webkit-border-radius:0 !important;
 }
