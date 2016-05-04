@@ -11,6 +11,8 @@ GitHub Plugin URI: https://github.com/rockethouse/rkt-admin
 GitHub Branch: master
 */
 
+defined('RKT_ENABLE_XMLRPC') or add_filter('xmlrpc_enabled', '__return_false');
+
 add_action('admin_head', 'site_name_meta');
 
 function site_name_meta() {
@@ -236,5 +238,3 @@ function rha_theme_menu() {
 /* ------------------------------------ *\
  | End Custom Theme Menu
 \* ------------------------------------ */
-
-
