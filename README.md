@@ -1,9 +1,9 @@
 rkt-admin
 =========
 
-Rockethouse Wordpress Admin v3.0
+Rockethouse Wordpress Admin v3.3.1
 
-v.30 Notes
+v.3.0.0 Notes
 
 Restructured whole plugin
 Removed lots of unnecessary file overrides

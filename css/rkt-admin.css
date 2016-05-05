@@ -661,6 +661,10 @@ body.rkt #toplevel_page_w3tc_dashboard .wp-menu-image {
 }
 
 
+#adminmenu li#toplevel_page_woocommerce-pos .wp-menu-image.svg {
+	background-size: 0 !important;
+}
+
 
 body.rkt.login #login {
 	width: 300px;

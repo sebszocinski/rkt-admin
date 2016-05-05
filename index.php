@@ -5,7 +5,7 @@ Plugin Name: Rockethouse WordPress Admin UI
 Plugin URI: http://www.rockethouse.com.au
 Description: Rockethouse WordPress Admin UI Theme - Upload and Activate.
 Author: Rockethouse
-Version: 3.3.0
+Version: 3.3.1
 Author URI: http://www.rockethouse.com.au
 GitHub Plugin URI: https://github.com/rockethouse/rkt-admin
 GitHub Branch: master
